@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Demo for database with Spring</title>
+<base href="/" />
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body ng-app="app" ng-controller="home as home" >
+	<div class="container">
+		<ul class="nav nav-pills" role="tablist">
+			<li class="active" ng-click="home.refresh()"><a href="">Home</a></li>
+			<li><a href="">Login</a>
+			<li ng-click="home.logout()"><a href="">Logout</a>
+		</ul>
+		<form ng-submit="home.login()" ng-hide="home.hide" class"ng-cloak">
+			<div class="form-group">
+				<label for="username">Username:</label><input type="text"
+					class="form-control" id="content" name="content"
+					ng-model="home.credentials.username" /> <label for="password">Password:</label><input
+					type="password" class="form-control" id="content" name="content"
+					ng-model="home.credentials.password" />
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+	<div class="container" ng-show="home.hide">
+ 		<p>{{home.refesh()}}</p>
+ 		<table >
+ 			<tr>
+ 				<th>ID</th>
+ 				<th>Name</th>
+ 			</tr>
+ 			<tr ng-repeat="user in home.data">
+ 				<td>{{user.id}}</td>
+ 				<td>{{user.name}}</td>
+ 			</tr>
+ 		</table>
+
+	</div>
+	
+	<div class="container" ng-show="home.hide">
+		<form name="newuser" ng-submit="home.commitNewUser()">
+			Name of new user: <input type="text" name="name">
+			
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	
+	<script src="/webjars/angularjs/angular.min.js"></script>
+	<script type="text/javascript" src="js/hello.js">
+	
+
+	</script>
+</body>
+</html>

@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/andras
     username: root
     password: andras
-  .jpa:
+  jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
