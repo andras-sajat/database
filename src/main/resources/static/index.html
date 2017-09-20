@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
 <meta charset="utf-8" />
 <title>Demo for database with Spring</title>
 <base href="/" />
@@ -8,7 +10,11 @@
 	href="/webjars/bootstrap/css/bootstrap.min.css" />
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/webjars/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="js/hello.js"></script>
 <style>
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -26,33 +32,33 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-<body ng-app="app" ng-controller="home as home" >
-	<div class="container">
+<body data-ng-app="app" data-ng-controller="home as home" >
+	<div class="container" data-ng-cloak>
 		<ul class="nav nav-pills" role="tablist">
-			<li class="active" ng-click="home.refresh()"><a href="">Home</a></li>
+			<li class="active" data-ng-click="home.refresh()"><a href="">Home</a></li>
 			<li><a href="">Login</a>
-			<li ng-click="home.logout()"><a href="">Logout</a>
+			<li data-ng-click="home.logout()"><a href="">Logout</a>
 		</ul>
-		<form ng-submit="home.login()" ng-hide="home.hide" class"ng-cloak">
+		<form data-ng-submit="home.login()" data-ng-hide="home.hide" data-ng-cloak>
 			<div class="form-group">
 				<label for="username">Username:</label><input type="text"
 					class="form-control" id="content" name="content"
-					ng-model="home.credentials.username" /> <label for="password">Password:</label><input
+					data-ng-model="home.credentials.username" /> <label for="password">Password:</label><input
 					type="password" class="form-control" id="content" name="content"
-					ng-model="home.credentials.password" />
+					data-ng-model="home.credentials.password" />
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 
-	<div class="container" ng-show="home.hide">
+	<div class="container" data-ng-show="home.hide" data-ng-cloak>
  		<p>{{home.refesh()}}</p>
  		<table >
  			<tr>
  				<th>ID</th>
  				<th>Name</th>
  			</tr>
- 			<tr ng-repeat="user in home.data">
+ 			<tr data-ng-repeat="user in home.data">
  				<td>{{user.id}}</td>
  				<td>{{user.name}}</td>
  			</tr>
@@ -60,18 +66,13 @@ tr:nth-child(even) {
 
 	</div>
 	
-	<div class="container" ng-show="home.hide">
-		<form name="newuser" ng-submit="home.commitNewUser()">
+	<div class="container" data-ng-show="home.hide" data-ng-cloak>
+		<form name="newuser" data-ng-submit="home.commitNewUser()">
 			Name of new user: <input type="text" name="name">
 			
 			<button type="submit">Submit</button>
 		</form>
-	</div>
-	
-	<script src="/webjars/angularjs/angular.min.js"></script>
-	<script type="text/javascript" src="js/hello.js">
-	
+	</div>	
 
-	</script>
-</body>
+	</body>
 </html>

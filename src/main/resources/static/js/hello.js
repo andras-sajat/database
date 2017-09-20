@@ -2,9 +2,6 @@ angular.module("app",[]).config(function ($httpProvider) {
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }).controller("home", function($http) {
         var self = this;
-        $http.get("/rest/users/all").then(function(response){
-        	self.data=response.data;
-        });
 
         self.refresh = function(){
             $http.get("/greeting").then(function(response){
@@ -16,6 +13,12 @@ angular.module("app",[]).config(function ($httpProvider) {
                 }
             });
         };
+        
+        $http.get("/rest/users/all").then(function(response){
+        	self.data=response.data;
+        	self.refresh()
+        });
+
 
         self.refresh();
         self.credentials = {};

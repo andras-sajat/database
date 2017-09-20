@@ -2,10 +2,6 @@ package andras.database;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import andras.database.repository.UsersRepository;
-
 public class Greeting {
 
 	private String id = UUID.randomUUID().toString();

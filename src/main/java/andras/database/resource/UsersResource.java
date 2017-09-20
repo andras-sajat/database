@@ -13,9 +13,11 @@ import andras.database.model.Users;
 import andras.database.repository.UsersRepository;
 
 @RestController
-@RequestMapping(value="/rest/users")
+@RequestMapping(value=UsersResource.URI)
 public class UsersResource {
 
+	final static String URI = "/rest/users";
+	
 	@Autowired
 	UsersRepository usersRepository;
 	

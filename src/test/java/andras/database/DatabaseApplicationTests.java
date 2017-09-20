@@ -1,5 +1,7 @@
 package andras.database;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +13,7 @@ public class DatabaseApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		assertEquals(true,true);
 	}
 
 }
