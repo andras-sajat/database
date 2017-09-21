@@ -14,11 +14,18 @@ public class Users {
 	private Integer id;
 	@Column(name="name")
 	private String name;
+	@Column(name="checked")
+	private boolean checked;
 	
 	public Users() {
-		
+		setChecked(false);
 	}
 
+	public Users(String name) {
+		this.name=name;
+		setChecked(false);
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -33,6 +40,14 @@ public class Users {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
 	}
 	
 }
